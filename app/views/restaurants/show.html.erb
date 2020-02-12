@@ -1,14 +1,37 @@
-<h1><%= @restaurant.name.capitalize %></h1>
-<p>Address: <%= @restaurant.address %></p>
-<p>Phone number: <%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
-<%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
 
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-  <li>
-    <%= review.content %>
-    <%= review.rating %>
-  </li>
-  <% end %>
-</ul>
+<div class="container d-flex justify-content-between p-4">
+  <div class="row">
+    <div class="col">
+      <h1><strong><%= @restaurant.name.capitalize %></h1></strong>
+      <div class="text-secondary">
+        <p>Address: <%= @restaurant.address %></p>
+        <p>Phone number: <%= @restaurant.phone_number %></p>
+        <p><%= @restaurant.category %></p>
+      </div>
+      <%= link_to 'Back |', restaurants_path  %>
+      <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+    </div>
+    <div class="col-6 mb-3">
+      <ul>
+        <% @restaurant.reviews.each do |review| %>
+        <li>
+          <div class="comments d-flex">
+            <div class="comments-title">
+              <p><strong>Commentaires: </strong></p>
+            </div>
+            <div class="comments-client">
+              <%= review.content %>
+            </div>
+          </div>
+          <div class="votes">
+            <p><strong>Note: </strong><%= review.rating %></p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col">
+      <img src="https://ca.slack-edge.com/T02NE0241-USAEK0NAC-d1ef7af07bd6-512" style="width: 100px;" alt="">
+    </div>
+  </div>
+</div>

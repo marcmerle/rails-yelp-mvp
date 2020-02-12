@@ -1,12 +1,18 @@
-<div class="container">
-  <div class="row">
+<div class="container justify-space-between p-4">
+  <div class="justify-content-md-center">
     <div id="create-restaurant">
-      <%= link_to 'create a new restauant', new_restaurant_path  %>
+      <%= link_to '+ Create a new restauant', new_restaurant_path  %>
     </div>
-    <ul class="list-group col-sm-8 col-sm-offset-2">
+    <ul class="list-group col-sm-8 col-sm-offset-2 p-4">
       <% @restaurants.each do |restaurant| %>
-      <li class="item-article">
-        <h2><strong><%= link_to restaurant.name.capitalize, restaurant_path(restaurant)  %></h2></strong>
+      <li class="item-article d-flex justify-content-between shadow p-3 mb-3 bg-white rounded">
+        <img src="https://picsum.photos/50/50" alt="">
+        <div class="link-name text-decoration-none">
+          <h2><strong><%= link_to restaurant.name.capitalize, restaurant_path(restaurant)  %></h2></strong>
+        </div>
+        <div class="restaurant-category">
+          <p><%= restaurant.category %></p>
+        </div>
       <% end %>
       </li>
     </ul>
