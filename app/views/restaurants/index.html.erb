@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div id="create-restaurant">
+      <%= link_to 'create a new restauant', new_restaurant_path  %>
+    </div>
+    <ul class="list-group col-sm-8 col-sm-offset-2">
+      <% @restaurants.each do |restaurant| %>
+      <li class="item-article">
+        <h2><strong><%= link_to restaurant.name.capitalize, restaurant_path(restaurant)  %></h2></strong>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
